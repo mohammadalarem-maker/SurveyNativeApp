@@ -10,8 +10,6 @@
 <title>محطة المساحة الرقمية</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTIiIGZpbGw9IiMxMTE2MUMiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjI0IiByPSI5IiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkIxNEUiIHN0cm9rZS13aWR0aD0iMyIvPjxsaW5lIHgxPSIzMiIgeTE9IjE1IiB4Mj0iMzIiIHkyPSI5IiBzdHJva2U9IiNGRkIxNEUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjMyIiB5MT0iMzMiIHgyPSIyMCIgeTI9IjU1IiBzdHJva2U9IiNGRjZCMzUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjMyIiB5MT0iMzMiIHgyPSI0NCIgeTI9IjU1IiBzdHJva2U9IiNGRjZCMzUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjE2IiB5MT0iNTUiIHgyPSI0OCIgeTI9IjU1IiBzdHJva2U9IiNGRjZCMzUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+" />
 <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTIiIGZpbGw9IiMxMTE2MUMiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjI0IiByPSI5IiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkIxNEUiIHN0cm9rZS13aWR0aD0iMyIvPjxsaW5lIHgxPSIzMiIgeTE9IjE1IiB4Mj0iMzIiIHkyPSI5IiBzdHJva2U9IiNGRkIxNEUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjMyIiB5MT0iMzMiIHgyPSIyMCIgeTI9IjU1IiBzdHJva2U9IiNGRjZCMzUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjMyIiB5MT0iMzMiIHgyPSI0NCIgeTI9IjU1IiBzdHJva2U9IiNGRjZCMzUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjE2IiB5MT0iNTUiIHgyPSI0OCIgeTI9IjU1IiBzdHJva2U9IiNGRjZCMzUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+" />
-<link rel="stylesheet" href="leaflet.css" />
-<script src="leaflet.js"></script>
 <style>
   :root{
     --bg:#11161C; --panel:#0B0F13; --panel-alt:#161D24; --line:#232B33;
@@ -155,7 +153,6 @@
     max-width:420px;max-height:80vh;overflow-y:auto;}
   .info-card h3{margin-top:0;color:var(--amber);font-size:15px;}
   .info-card ul{padding-right:18px;line-height:1.85;font-size:12.5px;color:var(--text);margin:0 0 12px;}
-  .leaflet-control-layers, .leaflet-bar a{background:var(--panel-alt) !important;color:var(--text) !important;border-color:var(--line) !important;}
 
   ::-webkit-scrollbar{width:8px;height:8px;}
   ::-webkit-scrollbar-track{background:var(--panel);}
@@ -174,6 +171,8 @@
     font-size:11px;padding:8px;background:#06090C;border:1px solid var(--line);color:var(--text);
     border-radius:8px;box-sizing:border-box;}
 </style>
+<link rel="stylesheet" href="leaflet.css" />
+<script src="leaflet.js"></script>
 </head>
 <body>
 
@@ -345,7 +344,6 @@
   </div>
 </div>
 
-<script src="leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.2/proj4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
