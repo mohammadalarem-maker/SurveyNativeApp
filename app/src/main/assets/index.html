@@ -381,7 +381,7 @@
   L.control.layers({ 'صور الأقمار الصناعية':esriSat, 'خريطة الشوارع':osmStreets, 'طبوغرافية':topo }, {}, { position:'topleft' }).addTo(map);
   L.control.scale({ imperial:false, position:'bottomleft' }).addTo(map);
 
-  map.on('click', function(e){ addPoint(e.latlng.lat, e.latlng.lng, 0); });
+map.on('click', function(e){ console.log("MAP_CLICK: Coordinate captured: " + e.latlng.lat); addPoint(e.latlng.lat, e.latlng.lng, 0); });
 
   if (navigator.geolocation){
     try {
