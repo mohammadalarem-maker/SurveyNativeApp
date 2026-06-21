@@ -1,35 +1,30 @@
 package com.alsarem.survey
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.webkit.WebChromeClient
-import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.webkit.WebChromeClient
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
         val webView = WebView(this)
-        webView.settings.apply {
-            javaScriptEnabled = true
-            domStorageEnabled = true
-            allowFileAccess = true
-            allowContentAccess = true
-            builtInZoomControls = true
-            displayZoomControls = false
-            databaseEnabled = true
-            mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-        }
+        setContentView(webView)
+
+        // إعدادات الـ WebView لتشغيل الأزرار والخريطة
+        webView.settings.javaScriptEnabled = true
+        webView.settings.domStorageEnabled = true
+        webView.settings.allowFileAccess = true
+        webView.settings.allowContentAccess = true
+        webView.settings.databaseEnabled = true
         
+        // منع فتح الروابط في متصفح خارجي
         webView.webViewClient = WebViewClient()
         webView.webChromeClient = WebChromeClient()
-        
-        // استدعاء ملف الويب من أصول مشروع النيتف الداخلي
+
+        // تحميل ملف مشروعك الأساسي
         webView.loadUrl("file:///android_asset/index.html")
-        setContentView(webView)
     }
 }
