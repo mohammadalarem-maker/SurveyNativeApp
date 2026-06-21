@@ -6,6 +6,8 @@ import android.webkit.WebViewClient
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.GeolocationPermissions
+import android.webkit.ConsoleMessage
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -15,33 +17,34 @@ class MainActivity : AppCompatActivity() {
         val webView = WebView(this)
         setContentView(webView)
 
-        // إعدادات الـ WebView المتقدمة لتشغيل الخريطة والأزرار
+        // إعدادات تشغيل الجافا سكريبت والخريطة
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
         webView.settings.allowFileAccess = true
         webView.settings.allowContentAccess = true
         webView.settings.databaseEnabled = true
         
-        // السماح بتحميل البيانات المختلطة لضمان جلب مربعات الخريطة (Tiles) عبر الإنترنت
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             webView.settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
         }
 
-        // منع فتح الروابط في متصفح خارجي
         webView.webViewClient = WebViewClient()
 
-        // تمرير صلاحيات الـ GPS من النظام إلى داخل الخريطة مباشرة لمنع تجمد الشاشة
         webView.webChromeClient = object : WebChromeClient() {
             override fun onGeolocationPermissionsShowPrompt(
                 origin: String?,
                 callback: GeolocationPermissions.Callback?
             ) {
-                // الموافقة التلقائية لملف الخريطة للوصول إلى نظام الإحداثيات
                 callback?.invoke(origin, true, false)
+            }
+
+            // اقتناص أخطاء الخريطة والجافا سكريبت وطباعتها في لوج الأندرويد
+            override fun onConsoleMessage(consoleMessage: ConsoleMessage?): Boolean {
+                Log.e("MAP_ERROR", "[JS_Crash] ${consoleMessage?.message()} -- Line: ${consoleMessage?.lineNumber()} in ${consoleMessage?.sourceId()}")
+                return true
             }
         }
 
-        // تحميل ملف مشروعك الأساسي
         webView.loadUrl("file:///android_asset/index.html")
     }
 }
