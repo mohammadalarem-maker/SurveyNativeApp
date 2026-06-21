@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:label="Survey App"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         
         <activity
